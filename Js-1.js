@@ -5,7 +5,7 @@ function isLeapYear(year){
         console.log(`${year} is a leap year`)
     }
     else{
-        console.log(`this year ${year} is not a leap year`)
+        console.log(`this year ${year} is not a leap year`);
     }
 }
 

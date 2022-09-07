@@ -30,9 +30,19 @@ function convertTemperature(temp){
     console.log(`${temp}.F is ${celcius}.C`);
 }
 // convertTemperature(60);
-convertTemperature(45);
-
-
+// convertTemperature(45);
 
 
 // 3. Write a program to find the factorial of a number.
+
+function factorial(number){
+
+    let isfactorial = 1;
+    for(let i=0; i<number; i++){
+        isfactorial *= (number - i);
+    }
+    return isfactorial;
+}
+
+const findFactorial = factorial(10);
+console.log(findFactorial);

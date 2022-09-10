@@ -12,3 +12,9 @@ for(i=1; i<=4; i++) {
     }
     console.log(bag);
 }
+
+
+// 2. Write a program to find whether a given number is armstrong number or
+// notThe Armstrong number is a number that is equal to the sum of cubes of
+// its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong
+// numbers. Let's try to understand why 153 is an Armstrong number.

@@ -25,4 +25,7 @@ for(i=1; i<=4; i++) {
 // (3*3*3)=27
 // So:
 // 1+125+27=153
-q2  
+
+
+// 3. Write a program to find whether a given number is special number or
+// not

@@ -29,23 +29,20 @@ for(i=1; i<=4; i++) {
 function findArm(e){
     let num = e.toString().split('').map(Number);
     // console.log(typeof num[0]);
-
     let sum = 0;
     let pow = 0;
+    
     for(i=0; i<num.length; i++){
         pow = num[i]*num[i]*num[i];
         sum += pow;
     }
-    sum === pow ? `${e} is armstrong` : `${e} is not armstrong`;
+    return e == sum ? `${e} is armstrong` : `${e} is not armstrong`;
 
     // let sum = num.reduce((ac,cv)=>{
     //     ac + Math.pow(cv);
     // },0);
-
-    return sum;
 }
-
-const armstrong = findArm(153);
+const armstrong = findArm(370);
 console.log(armstrong);
 
 // 3. Write a program to find whether a given number is special number or

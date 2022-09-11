@@ -31,7 +31,7 @@ function findArm(e){
     // console.log(typeof num[0]);
     let sum = 0;
     let pow = 0;
-    
+
     for(i=0; i<num.length; i++){
         pow = num[i]*num[i]*num[i];
         sum += pow;
@@ -43,11 +43,34 @@ function findArm(e){
     // },0);
 }
 const armstrong = findArm(370);
-console.log(armstrong);
+// console.log(armstrong);
 
 // 3. Write a program to find whether a given number is special number or
 // not
 // If the sum of the factorial of digits of a number (N) is equal to the
 // number itself, the number (N) is called a special number.
 // eg- 145 is a special number
-// Logic- 1! + 4! + 5!= 1+24+120 i.e 14
+// Logic- 1! + 4! + 5!= 1+24+120 i.e 145
+
+let special = (n) => {
+
+    let num = n.toString().split("").map(Number);
+    console.log(num);
+
+    let sum = 0;
+    let factorial = 0;
+    let numarray = [];
+
+    for(let i=0; i<num.length; i++) {
+        console.log('i=',num[i]);
+
+        for(let j=1; j<=num[i].length; j++) {
+            factorial += num[i] * (num[j]-1);
+            // console.log(factorial);
+        }
+    }
+
+}
+
+let SpecialNum = special(145);
+console.log(SpecialNum);

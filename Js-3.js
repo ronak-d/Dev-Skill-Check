@@ -36,7 +36,7 @@ function findArm(e){
         pow = num[i]*num[i]*num[i];
         sum += pow;
     }
-    sum==pow ? `${e} is armstrong` : `${e} is not armstrong`;
+    sum === pow ? `${e} is armstrong` : `${e} is not armstrong`;
 
     // let sum = num.reduce((ac,cv)=>{
     //     ac + Math.pow(cv);

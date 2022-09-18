@@ -56,15 +56,16 @@ let special = (n) => {
 
     let value = [];
     let sum = 0;
+
     for(let i = 0; i <num.length; i++) {
-
+        let e = num[i];
+        console.log(e);
+        for(j=e; j>0; j++){
+            sum += e*(j-1);
+        }
+        value.push(sum);
     }
-    for(i=e; i>0; i++){
-        sum += e*(i-1);
-    }
-
-    value.push(sum);
 }
 
-let SpecialNum = special(145);
+let SpecialNum = special(12);
 console.log(SpecialNum);

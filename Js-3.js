@@ -57,19 +57,17 @@ let special = (n) => {
     let num = n.toString().split("").map(Number);
     console.log(num);
 
+    let value = [];
     let sum = 0;
-    let factorial = 0;
-    let numarray = [];
 
-    for(let i=0; i<num.length; i++) {
-        console.log('i=',num[i]);
+    let factorial = num.map((e)=>{
 
-        for(let j=1; j<=num[i].length; j++) {
-            factorial += num[i] * (num[j]-1);
-            // console.log(factorial);
+        while(e > 0){
+            sum += (e * e-1);
         }
-    }
-
+        value.push(sum);
+    })
+    console.log(value);
 }
 
 let SpecialNum = special(145);

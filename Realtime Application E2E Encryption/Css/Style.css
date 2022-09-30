@@ -1,0 +1,18 @@
+.navlogo{
+    padding: 10px;
+    border:7px silver solid;
+}
+.logodiv{
+    /* border:2px rgb(204, 204, 204) solid; */
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    border: 7px solid black;
+    width: 35px;
+    height: 35px;
+}
+
+body{
+    background-color:rgb(224, 181, 181);
+}

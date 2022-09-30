@@ -1,5 +1,5 @@
 .navlogo{
-    margin: 10px;
+    margin: 10px auto;
     padding: 10px;
     border:7px rgb(216, 213, 213) solid;
 }
@@ -9,7 +9,7 @@
     justify-content: center;
 }
 .logo{
-    border: 7px solid black;
+    border: 4px solid black;
     width: 35px;
     height: 35px;
 }
@@ -18,7 +18,38 @@ body{
     background-color:rgb(224, 181, 181);
 }
 .container{
-    margin: 10px;
+    width: auto;
+    margin: auto;
     padding: 10px;
     border:7px rgb(216, 213, 213) solid;
+    height: 60vh;
+    overflow-y: auto;
+}
+.message{
+    border: 2px solid black;
+    margin: 10px auto;
+    padding: 4px;
+    width: 90%;
+    background-color: rgb(210, 150, 150);
+    border-radius: 3px;
+}
+.right{
+    display: flex;
+    justify-content: flex-end
+}
+.left{
+    display: flex;
+    justify-content: flex-start;
+}
+.send{
+    border: 4px rgb(216, 213, 213) solid;
+    width: auto;
+    margin: 10px auto;
+    padding: 10px;
+}
+.messageInp{
+    border: 90px solid black;
+}
+.btn{
+    border: 2px solid black;
 }

@@ -13,13 +13,16 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("1");
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const CRUD = await hre.ethers.getContractFactory("CRUD");
+  // inside deploy constructor args has to passed with deploy() funcn;
+  const crud = await CRUD.deploy();
+  // now this crud function is fully deployed.
+  await crud.deployed();
 
-  await lock.deployed();
+  console.log(crud);
 
   console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${crud.address}`
   );
 }
 

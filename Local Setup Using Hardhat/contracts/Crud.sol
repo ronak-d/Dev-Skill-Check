@@ -24,7 +24,7 @@ contract CRUD {
         employee memory newEmployee = employee(name, walletAddress);
         employees.push(newEmployee);
         totalemployees++;
-        return totalemployees;
+        return (totalemployees);
     }
 
 

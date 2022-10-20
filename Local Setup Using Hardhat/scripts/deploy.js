@@ -5,7 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 
-// to run the file go to the scripts directory and $ npx hardhat run deploy.js
+// IMP-> to run the file go to the scripts directory and $ npx hardhat run deploy.js
 const hre = require("hardhat");
 
 async function main() {
@@ -30,13 +30,23 @@ async function main() {
 
   const createEmployeeGiveArgs = await crud.create("ron","0x24794203d1246ee2625860D74415356b5996AFf6")
 
-  const countTotalEmployees = await crud.totalepmployees;
+  // count of employees
+  const countTotalEmployees = await crud.totalemployees();
 
-  const ShowEmployee = await crud.employees(0);
+  // array of [employees] where arr type is [employee]
+  // const ShowEmployee = await crud.employees(0); // this is hardcoded so.. see just below.
+  
+  const ShowEmployee = await crud.employees(countTotalEmployees-1); // -> totalemployees will be 1 so 1-1 => 0 index employee present.
 
-  console.log(countTotalEmployees);
+  // now to show the employees present in the array of employee[].
+  // we need to see it thorugh index and we'll push them into new arr in js file.
+  // because solidity does not provide the data to be shown from the array of employee[].
+  // it may costs huge gas and can't persist data from the BLOCK of the blockchain.
 
+  console.log(`Count of employee from totalemployees funcn. ${countTotalEmployees}`);
+  console.log(`Struct(employee) shows the properties from [Employees public getter funcn]. ${ShowEmployee}`);
 
+// MAKE SURE ALL THIS YOU ARE CALLING IS A FUNCTION AND YOU ARE PASSING THE ARGUMENTS IN THE FUNCTIONS.
 }
 
 // We recommend this pattern to be able to use async/await everywhere

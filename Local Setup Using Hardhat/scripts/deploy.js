@@ -28,14 +28,16 @@ async function main() {
     `Crud contract timestamp ${unlockTime} deployed to ${crud.address}`
   );
 
-  const createEmployeeGiveArgs = await crud.create("ron","0x24794203d1246ee2625860D74415356b5996AFf6")
+    // ----------------------------------------- operations started.
+
+  // Create an employee.
+  const createEmployeeGiveArgs = await crud.create(1,"ron","0x24794203d1246ee2625860D74415356b5996AFf6")
 
   // count of employees
   const countTotalEmployees = await crud.totalemployees();
 
   // array of [employees] where arr type is [employee]
   // const ShowEmployee = await crud.employees(0); // this is hardcoded so.. see just below.
-  
   const ShowEmployee = await crud.employees(countTotalEmployees-1); // -> totalemployees will be 1 so 1-1 => 0 index employee present.
 
   // now to show the employees present in the array of employee[].

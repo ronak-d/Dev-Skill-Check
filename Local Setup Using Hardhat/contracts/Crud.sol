@@ -3,6 +3,7 @@ pragma solidity ^0.8.9;
 
 contract CRUD {
     struct employee{
+        uint id;
         string name;
         address walletAddress;
     }
@@ -17,14 +18,22 @@ contract CRUD {
         totalemployees = 0;
     }
 
-    // Users can be able to Add the employee.
-    function create(string memory name, address walletAddress) public returns(uint256 _totalemployees){
+    // Users can be able to Add the employee -> CREATE
+    function create(uint id, string memory name, address walletAddress) public returns(uint256 _totalemployees){
         // we have maintain employee dataype with memory because with each function execution its storage also resets.
-        // and alsoo memory keyword uses less gas then calldata.
-        employee memory newEmployee = employee(name, walletAddress);
-        employees.push(newEmployee);
-        totalemployees++;
+        // and also memory keyword uses less gas then calldata.
+
+        employee memory newEmployee = employee(id, name, walletAddress);
+            employees.push(newEmployee);
+            totalemployees++;
         return (totalemployees);
+    }
+
+    // READ the data
+    function read(uint id) public returns(uint _id, string memory name, address walletAddress){
+
+        
+
     }
 
 

@@ -22,19 +22,18 @@ contract CRUD {
     function create(uint id, string memory name, address walletAddress) public returns(uint256 _totalemployees){
         // we have maintain employee dataype with memory because with each function execution its storage also resets.
         // and also memory keyword uses less gas then calldata.
-
         employee memory newEmployee = employee(id, name, walletAddress);
-            employees.push(newEmployee);
+            employees.push(newEmployee); //passing an employee details in the employees array.
             totalemployees++;
         return (totalemployees);
     }
 
     // READ the data
-    function read(uint id) public returns(uint _id, string memory name, address walletAddress){
+    // function read(uint id) public returns(uint _id, string memory name, address walletAddress){
 
-        
 
-    }
+
+    // }
 
 
 

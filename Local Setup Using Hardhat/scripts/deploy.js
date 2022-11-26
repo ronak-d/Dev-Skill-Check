@@ -45,8 +45,8 @@ async function main() {
   // because solidity does not provide the data to be shown from the array of employee[].
   // it may costs huge gas and can't persist data from the BLOCK of the blockchain.
 
-  console.log(`Count of employee from totalemployees funcn. ${countTotalEmployees}`);
-  console.log(`Struct(employee) shows the properties from [Employees public getter funcn]. ${ShowEmployee}`);
+  console.log(`1) Count of employee from totalemployees funcn. ${countTotalEmployees}`);
+  console.log(`2) Struct(employee) shows the properties from [Employees public getter funcn]. ${ShowEmployee}`);
 
 // MAKE SURE ALL THIS YOU ARE CALLING IS A FUNCTION AND YOU ARE PASSING THE ARGUMENTS IN THE FUNCTIONS.
 }

@@ -28,12 +28,16 @@ contract CRUD {
         return (totalemployees);
     }
 
-    // READ the data
-    // function read(uint id) public returns(uint _id, string memory name, address walletAddress){
+    // READ
+    // refer = > https://ethereum.stackexchange.com/questions/90245/how-do-i-loop-through-an-array-of-structs-typeerror-integer-constant-expected
+    function read(uint id) public view returns(uint _id, string memory _name, address _walletAddress){
 
-
-
-    // }
+        for( uint i=0; i<totalemployees; i++){
+            if(employees[i].id == id){
+                return (employees[i].id, employees[i].name, employees[i].walletAddress);
+            }
+        }
+    }
 
 
 

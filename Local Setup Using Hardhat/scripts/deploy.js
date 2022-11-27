@@ -51,12 +51,14 @@ async function main() {
 
   const updateExistingEmployee = await crud.update(10)
 
+  const deleteEmp = await crud.deleteEmployee("sahil");
+
   
   console.log(`1) Count of employee from totalemployees funcn. ${countTotalEmployees}`);
   console.log(`2) Struct(employee) shows the properties from [Employees public getter funcn]. ${ShowEmployee}`);
   console.log(`3) view employees and read function of crud contract ${viewemployee}`)
   console.log(`4) updated employee id ${updateExistingEmployee}`);
-  
+  console.log(`5) deleted employee ${deleteEmployee}`);
 // MAKE SURE ALL THIS YOU ARE CALLING IS A FUNCTION AND YOU ARE PASSING THE ARGUMENTS IN THE FUNCTIONS.
 }
 

@@ -1,0 +1,27 @@
+{
+    "name": "Vegita",
+    "description": "Vegeta is the prince of the fallen Saiyan race. He is the eldest son of King Vegeta, the older brother of Tarble, the husband of Bulma, the father of Trunks and Bulla, and the ancestor of Vegeta",
+    "image" :"https://ipfs.io/ipfs/QmcPHwbKQrxwuixRDFUeK1gHhGyirzWUAtNxZJRvnu2YLw",
+    "attributes": [
+        {
+            "trait_type": "Strength",
+            "value": 10,
+            "max_value":10
+        },
+        {
+            "trait_type": "Strength",
+            "value": 8,
+            "max_value":10
+        },
+        {
+            "trait_type": "Pump",
+            "value": 9,
+            "max_value":10
+        },
+        {
+            "trait_type": "Punch",
+            "value": 7,
+            "max_value":10
+        }
+    ]
+}

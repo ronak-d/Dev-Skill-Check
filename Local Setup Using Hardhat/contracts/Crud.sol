@@ -59,8 +59,8 @@ contract CRUD {
         for(uint i = 0; i < totalemployees; i++) {
 
             if(keccak256(abi.encodePacked(employees[i].name)) == keccak256(abi.encodePacked(name))) {
-                employees[i] = employees[totalemployees-1];
-                delete employees[totalemployees-1];
+                employees[i] = employees[totalemployees-1];     // just replacing the order and we can also pop it from the array.
+                delete employees[totalemployees-1];             // as we cannot delete from between.
                 totalemployees--;
                 employees.length-1;
                 return true;

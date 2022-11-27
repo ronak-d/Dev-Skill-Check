@@ -31,7 +31,9 @@ async function main() {
     // ----------------------------------------- operations started.
 
   // Create an employee.
-  const createEmployeeGiveArgs = await crud.create(1,"ron","0x24794203d1246ee2625860D74415356b5996AFf6")
+  const createEmployeeGiveArgs1 = await crud.create(1,"ron","0x24794203d1246ee2625860D74415356b5996AFf6")
+  const createEmployeeGiveArgs2 = await crud.create(2,"sahil","0x24794203d1246ee2625860D74415356b5996AFf6")
+  const createEmployeeGiveArgs3 = await crud.create(3,"praj","0x24794203d1246ee2625860D74415356b5996AFf6")
 
   // count of employees
   const countTotalEmployees = await crud.totalemployees();
@@ -45,9 +47,16 @@ async function main() {
   // because solidity does not provide the data to be shown from the array of employee[].
   // it may costs huge gas and can't persist data from the BLOCK of the blockchain.
 
+  const viewemployee = await crud.read(1);
+
+  const updateExistingEmployee = await crud.update(10)
+
+  
   console.log(`1) Count of employee from totalemployees funcn. ${countTotalEmployees}`);
   console.log(`2) Struct(employee) shows the properties from [Employees public getter funcn]. ${ShowEmployee}`);
-
+  console.log(`3) view employees and read function of crud contract ${viewemployee}`)
+  console.log(`4) updated employee id ${updateExistingEmployee}`);
+  
 // MAKE SURE ALL THIS YOU ARE CALLING IS A FUNCTION AND YOU ARE PASSING THE ARGUMENTS IN THE FUNCTIONS.
 }
 

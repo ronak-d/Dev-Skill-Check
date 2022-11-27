@@ -39,6 +39,23 @@ contract CRUD {
         }
     }
 
+    // UPDATE
+    // refer => https://stackoverflow.com/questions/54499116/how-do-you-compare-strings-in-solidity
+    function update(string memory name, uint id) public returns(bool){
+
+        for( uint i=0; i<totalemployees; i++){
+
+            if(keccak256(abi.encodePacked(employees[i].name)) == keccak256(abi.encodePacked(name))) {
+                employees[i].id = id;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // DELETE
+    // function delete()
+
 
 
 

@@ -54,7 +54,20 @@ contract CRUD {
     }
 
     // DELETE
-    // function delete(){}
+    function deleteEmployee(string memory name) external returns(bool){
+        require(totalemployees>0);
+        for(uint i = 0; i < totalemployees; i++) {
+
+            if(keccak256(abi.encodePacked(employees[i].name)) == keccak256(abi.encodePacked(name))) {
+                employees[i] = employees[totalemployees-1];
+                delete employees[totalemployees-1];
+                totalemployees--;
+                employees.length-1;
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 

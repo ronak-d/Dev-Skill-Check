@@ -19,7 +19,7 @@ async function main() {
   await token.deployed();
 
   console.log(`Deployed to ${token.address}`);
-  const nft = await token.mint(10,"https://ipfs.io/ipfs/QmcPHwbKQrxwuixRDFUeK1gHhGyirzWUAtNxZJRvnu2YLw");
+  const nft = await token.mint(10,"https://ipfs.io/ipfs/QmUQFQF4xAF5A8sj9MqwkNnS6gQVer4F23c522F3YfwFPQ");
   console.log(nft);
 }
 
@@ -30,5 +30,3 @@ main().catch((error) => {
   process.exitCode = 1;
 });
 
-
-// insuffiecient funds and can watch from again nft 1 from 17 mins.

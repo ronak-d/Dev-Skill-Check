@@ -11,15 +11,15 @@ import {
   WagmiConfig,
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
+// import { publicProvider } from 'wagmi/providers/public';
 import { YourComponent } from './Components/YourComponent';
 
 
 const { chains, provider } = configureChains(
     [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.goerli],
     [
-      alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
-      publicProvider()
+      alchemyProvider({ apiKey: "zoZR88ybkJbA8DtyfxId-VJQlrJm2D6U" }),
+      // publicProvider()
     ]
   );
   const { connectors } = getDefaultWallets({

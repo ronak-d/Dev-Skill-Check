@@ -12,11 +12,10 @@ import {
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
-import ConnectBtn from './Components/ConnectBtn';
+import { YourComponent } from './Components/YourComponent';
 
-function App() {
 
-  const { chains, provider } = configureChains(
+const { chains, provider } = configureChains(
     [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.goerli],
     [
       alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
@@ -33,14 +32,14 @@ function App() {
     provider
   })
 
+  function App() {
+
   return (
-    <div className="App">
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <ConnectBtn />
-      </RainbowKitProvider>
-    </WagmiConfig>
-    </div>
+    <RainbowKitProvider chains={chains}>
+      <YourComponent />
+    </RainbowKitProvider>
+  </WagmiConfig>
   );
 }
 

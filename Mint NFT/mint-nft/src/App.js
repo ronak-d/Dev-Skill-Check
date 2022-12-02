@@ -15,6 +15,8 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 // import { publicProvider } from 'wagmi/providers/public';
 import { YourComponent } from './Components/YourComponent';
 import { Network, Alchemy } from 'alchemy-sdk';
+import axios from 'axios';
+import NFTbox from './Components/NFTbox/NFTbox';
 
 
 const { chains, provider } = configureChains(
@@ -37,6 +39,7 @@ const wagmiClient = createClient({
 function App() {
   const {address, isConnected} = useAccount();    // from wagmi => address, connected, gas etc.
   const [alchemy, setAlchemy] = useState();
+  const [nfts, setNfts] = useState(null);
 
   // Alchemy settings from the docs of sdk.
   useEffect(()=>{
@@ -45,7 +48,7 @@ function App() {
       network: Network.ETH_GOERLI, // Replace with your network.
     };
     const alchemy = new Alchemy(settings);
-    console.log(alchemy);
+    // console.log(alchemy);
     setAlchemy(alchemy);
   },[])
 
@@ -58,13 +61,24 @@ function App() {
   
   async function fetchNFTs(address){
     let ownerNfts = await alchemy.nft.getNftsForOwner(address);
-    console.log(ownerNfts);
+    let res = (ownerNfts.ownedNfts);
+    console.log(res);
+
+    // console.log(res.);
+    for(let i=0; i<res.length; i++){
+      const metadata =await axios(res[i].tokenUri.raw);
+      const newres = res[i].metadata = metadata.data;
+      // console.log(`${[i]} ${newres}`);
+      setNfts(newres);
+      console.log(newres);
+    }
   }
 
   return (
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
       <YourComponent />
+      <NFTbox nfts={nfts}/>
     </RainbowKitProvider>
   </WagmiConfig>
   );

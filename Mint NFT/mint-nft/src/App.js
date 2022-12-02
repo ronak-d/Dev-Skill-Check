@@ -70,7 +70,7 @@ function App() {
       const newres = res[i].metadata = metadata.data;
       // console.log(`${[i]} ${newres}`);
       setNfts(newres);
-      console.log(newres);
+      // console.log(newres);
     }
   }
 

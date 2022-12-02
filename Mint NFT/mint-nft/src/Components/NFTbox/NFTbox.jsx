@@ -8,17 +8,17 @@ import Rating from '@mui/material/Rating';
 
 
 const NFTbox = ({nfts}) => {
-    let rating = nfts.attributes;
-    // console.log(rating);
+
+    console.log(nfts)
   return (
-    <div>
-        <Card sx={{ maxWidth: 345,border: "2px solid black", margin:"20px" }}>
+    <div style={{border: '1px solid black'}}>
+        {/* <Card sx={{ maxWidth: 345,border: "2px solid black", margin:"20px" }}>
         <CardActionArea>
             <CardMedia
             component="img"
             height="180"
             image={nfts.image}
-            alt="green iguana"
+            alt="nft image"
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -28,18 +28,18 @@ const NFTbox = ({nfts}) => {
                 {nfts.description}
             </Typography>
 
-            {rating.map((e,index)=>(
-            <div key={index} style={{margin:"20px, 0px"}}>
-                <Typography variant="body2" color="text.primary">
+            {nfts.attributes.map((e,index)=>(
+            <div key={index} style={{margin:"20px"}}>
+                <Typography  variant="body1" color="text.primary">
                     {e.trait_type}
                 </Typography>
-                <Rating name="read-only" value={e.max_value}  readOnly />
+                <Rating  name="read-only" value={e.value} max={10} readOnly />
             </div>
             ))}
-
+            
             </CardContent>
         </CardActionArea>
-        </Card>
+        </Card> */}
     </div>
   )
 }

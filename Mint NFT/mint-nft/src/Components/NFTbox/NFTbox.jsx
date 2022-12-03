@@ -12,7 +12,7 @@ const NFTbox = ({nfts}) => {
     console.log(nfts)
   return (
     <div style={{border: '1px solid black'}}>
-        {/* <Card sx={{ maxWidth: 345,border: "2px solid black", margin:"20px" }}>
+        <Card sx={{ maxWidth: 345,border: "2px solid black", margin:"20px" }}>
         <CardActionArea>
             <CardMedia
             component="img"
@@ -28,9 +28,9 @@ const NFTbox = ({nfts}) => {
                 {nfts.description}
             </Typography>
 
-            {nfts.attributes.map((e,index)=>(
-            <div key={index} style={{margin:"20px"}}>
-                <Typography  variant="body1" color="text.primary">
+            {nfts?.attributes?.map((e,index)=>(
+            <div key={index} style={{margin:"5px 5px" ,border:"2px solid pink", borderRadius:"6px"}}>
+                <Typography variant="body1" padding="5px" color="text.primary">
                     {e.trait_type}
                 </Typography>
                 <Rating  name="read-only" value={e.value} max={10} readOnly />
@@ -39,9 +39,9 @@ const NFTbox = ({nfts}) => {
             
             </CardContent>
         </CardActionArea>
-        </Card> */}
+        </Card>
     </div>
   )
 }
 
-export default NFTbox
+export default NFTbox;

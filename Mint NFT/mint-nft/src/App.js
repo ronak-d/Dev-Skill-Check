@@ -39,7 +39,7 @@ const wagmiClient = createClient({
 function App() {
   const {address, isConnected} = useAccount();    // from wagmi => address, connected, gas etc.
   const [alchemy, setAlchemy] = useState();
-  const [nfts, setNfts] = useState(null);
+  const [nfts, setNfts] = useState([]);
   // const [attributes, setAttributes] = useState();
 
   // Alchemy settings from the docs of sdk.
@@ -60,26 +60,25 @@ function App() {
     }
   },[address,isConnected,alchemy]);
   
-  async function fetchNFTs(address){
+  async function fetchNFTs(address){  
     let ownerNfts = await alchemy.nft.getNftsForOwner(address);
     let res = await (ownerNfts.ownedNfts);
-
+    
     for(let i=0; i<res.length; i++){
       const metadata =await axios(res[i].tokenUri.raw);
       // console.log("metadata",metadata)
-      res[i].metadata = metadata.data;
-      let newres = res[i].metadata
-      setNfts(newres);
+      let newres = res[i].metadata =await metadata.data;
     }
-    // console.log("res", res)
 
+    // console.log("res", res)
+    setNfts(res); //modified response with metadata in it.
   }
 
   return (
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
       <YourComponent />
-      {address && isConnected && alchemy? <NFTbox nfts={nfts}/> : <h3>Please Connect the wallet</h3>}
+      {nfts.length>0 ? <NFTbox nfts={nfts}/> : <h3>Please Connect the wallet</h3>}
     </RainbowKitProvider>
   </WagmiConfig>
   );

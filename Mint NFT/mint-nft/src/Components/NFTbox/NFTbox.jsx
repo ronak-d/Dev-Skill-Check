@@ -9,7 +9,13 @@ import Rating from '@mui/material/Rating';
 
 const NFTbox = ({nfts}) => {
 
-    console.log(nfts)
+    const [dataNft, setDataNft] = React.useState([]);
+
+    React.useEffect(() =>{
+        (nfts).map((e)=>(setDataNft(e.metadata)))
+    },[]);
+    console.log(dataNft)
+
   return (
     <div style={{border: '1px solid black'}}>
         <Card sx={{ maxWidth: 345,border: "2px solid black", margin:"20px" }}>
@@ -17,18 +23,18 @@ const NFTbox = ({nfts}) => {
             <CardMedia
             component="img"
             height="180"
-            image={nfts.image}
+            image={dataNft.image}
             alt="nft image"
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-                {nfts.name}
+                {dataNft.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-                {nfts.description}
+                {dataNft.description}
             </Typography>
 
-            {nfts?.attributes?.map((e,index)=>(
+            {dataNft?.dataNft?.map((e,index)=>(
             <div key={index} style={{margin:"5px 5px" ,border:"2px solid pink", borderRadius:"6px"}}>
                 <Typography variant="body1" padding="5px" color="text.primary">
                     {e.trait_type}

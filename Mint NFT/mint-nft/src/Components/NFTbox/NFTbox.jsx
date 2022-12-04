@@ -34,7 +34,7 @@ const NFTbox = ({nfts}) => {
                 {dataNft.description}
             </Typography>
 
-            {dataNft?.dataNft?.map((e,index)=>(
+            {dataNft?.attributes?.map((e,index)=>(
             <div key={index} style={{margin:"5px 5px" ,border:"2px solid pink", borderRadius:"6px"}}>
                 <Typography variant="body1" padding="5px" color="text.primary">
                     {e.trait_type}

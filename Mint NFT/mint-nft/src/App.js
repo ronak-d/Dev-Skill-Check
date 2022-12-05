@@ -72,7 +72,6 @@ function App() {
       // console.log("metadata",metadata)
       let newres = res[i].metadata =await metadata.data;
     }
-
     // console.log("res", res)
     setNfts(res); //modified response with metadata in it.
   }

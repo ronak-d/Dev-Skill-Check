@@ -1,5 +1,7 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react'
+import { create } from 'ipfs-http-client'
+
 
 const CreateNft = ({setCreatenfts}) => {
 
@@ -14,13 +16,20 @@ const CreateNft = ({setCreatenfts}) => {
         // console.log(e.target.value)
         let key = e.target.name;
         let value = e.target.value;
+        let file ;
+
+        if(formdata.File){
+            file = e.target.files[0];         // refer from GFG how to handle file data.
+        }
+        console.log("file",file)
+
+        // const client = create({ url: "http://127.0.0.1:5002/api/v0" });
 
         let newobj = {...formdata};
         newobj[key] = value;
         setFormData(newobj);
-
     }
-    console.log(formdata)
+    // console.log(formdata)
 
     return (
     <>
@@ -35,8 +44,8 @@ const CreateNft = ({setCreatenfts}) => {
         <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center',flexDirection:'column',margin:"10px",padding:"10px"}}>
                 <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Tittle" label="Tittle" variant="outlined" size="small" margin="dense" focused/>
                 <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Description" label="Description" multiline variant="outlined" size="small" margin="dense"/>
-                <label style={{minWidth:'280px',padding:'5px'}} for="avatar">Choose a Asset picture:</label>
-                <input style={{minWidth:'280px',padding:'10px'}} type="file" accept="image/png, image/jpeg" />
+                <label style={{minWidth:'280px',padding:'5px'}}  for="avatar">Choose a Asset picture:</label>
+                <input style={{minWidth:'280px',padding:'10px'}} type="file" onChange={(e)=>handleFormData(e)} name="File" accept="image/png, image/jpeg" />
         </div>
     </>
   )

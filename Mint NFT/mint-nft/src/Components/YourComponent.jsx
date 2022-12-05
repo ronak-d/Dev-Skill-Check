@@ -4,11 +4,10 @@ export const YourComponent = () => {
   return (
     <div
       style={{
-        width: "100vw",
-        height: "auto",
+
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
+        // alignItems: "center",
+        justifyContent: "flex-start"
       }}
     >
       <ConnectButton />

@@ -17,6 +17,8 @@ import { YourComponent } from './Components/YourComponent';
 import { Network, Alchemy } from 'alchemy-sdk';
 import axios from 'axios';
 import NFTbox from './Components/NFTbox/NFTbox';
+import CreateNft from './Components/CreateNFT/CreateNft';
+import { Button } from '@mui/material';
 
 
 const { chains, provider } = configureChains(
@@ -40,6 +42,7 @@ function App() {
   const {address, isConnected} = useAccount();    // from wagmi => address, connected, gas etc.
   const [alchemy, setAlchemy] = useState();
   const [nfts, setNfts] = useState([]);
+  const [createNfts, setCreatenfts] = useState(false);
   // const [attributes, setAttributes] = useState();
 
   // Alchemy settings from the docs of sdk.
@@ -77,8 +80,14 @@ function App() {
   return (
     <WagmiConfig client={wagmiClient}>
     <RainbowKitProvider chains={chains}>
-      <YourComponent />
-      {nfts.length>0 ? <NFTbox nfts={nfts}/> : <h3>Please Connect the wallet</h3>}
+
+      <div style={{display: 'flex',justifyContent:"space-between",margin:"10px"}}>
+        <YourComponent />
+        <Button style={{minWidth:'20px'}} onClick={()=> setCreatenfts(true)} variant="contained"  size="medium">Create Nft</Button>  
+      </div>
+
+      {createNfts? <CreateNft setCreatenfts={setCreatenfts}/> : (nfts.length>0 ? <NFTbox nfts={nfts}/> : (<h3>Please Connect the wallet</h3>))}
+
     </RainbowKitProvider>
   </WagmiConfig>
   );

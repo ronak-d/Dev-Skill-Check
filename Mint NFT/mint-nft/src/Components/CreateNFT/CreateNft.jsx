@@ -26,16 +26,17 @@ const CreateNft = ({setCreatenfts}) => {
     console.log(formdata)
 
     async function handleImage(e){
+        
         console.log("file",e.target.files[0]);
-
-        const auth = 'Basic ' + Buffer.from("8416cbf89956453cb89f50f3bcf202f2" + ':' + "8416cbf89956453cb89f50f3bcf202f2").toString('base64');
-        const client = create({ url: "http://127.0.0.1:5002/api/v0",         // made a client form ipfs npm
+        const auth = 'Basic ' + Buffer.from("" + ':' + "").toString('base64');
+        const client = create({ url: "https://ipfs.infura.io:5001",         // made a client form ipfs npm
             headers: {authorization : auth}
         });                                                             
-        const {cid} = await client.add(e.target.files[0]);
-        console.log("cid",cid);
+        const response = await client.add(e.target.files[0]);
+        console.log(client);
+        console.log(client,"response",response);
     }
-
+    // 33 mins
     return (
     <>
         <div style={{display: 'flex',justifyContent: 'flex-end',margin:"10px"}}>

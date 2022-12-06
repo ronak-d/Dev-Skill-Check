@@ -28,7 +28,8 @@ const CreateNft = ({setCreatenfts}) => {
     async function handleImage(e){
         
         console.log("file",e.target.files[0]);
-        const auth = 'Basic ' + Buffer.from("" + ':' + "").toString('base64');
+        // proj ID + API key
+        const auth = 'Basic ' + Buffer.from("2IWjOQ94ggJTqVb1FLWeG7peZvy" + ':' + "8400d21e7d31d41cce5f7397cf53a3ca").toString('base64');
         const client = create({ url: "https://ipfs.infura.io:5001",         // made a client form ipfs npm
             headers: {authorization : auth}
         });                                                             

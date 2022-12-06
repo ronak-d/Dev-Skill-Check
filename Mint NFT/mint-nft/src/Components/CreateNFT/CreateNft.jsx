@@ -1,10 +1,12 @@
 import { Button, TextField } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer';
 
 
 const CreateNft = ({setCreatenfts}) => {
+
+    var ImgId;
 
     const [formdata, setFormData] = useState({
         Tittle:"",
@@ -19,7 +21,13 @@ const CreateNft = ({setCreatenfts}) => {
 
         // Just setting up the state
         var newobj = {...formdata};
-        newobj[key] = value;
+        // condition to modify the value for image.
+        if(key == "File"){
+            console.log(ImgId);
+            newobj[key] =(`https://ipfs.io/ipfs/${ImgId}`) ; 
+        }else{
+            newobj[key] = value;
+        }
         setFormData(newobj);
 
     }
@@ -27,17 +35,17 @@ const CreateNft = ({setCreatenfts}) => {
 
     async function handleImage(e){
         
-        console.log("file",e.target.files[0]);
+        // console.log("file",e.target.files[0]);
         // proj ID + API key
         const auth = 'Basic ' + Buffer.from("2IWjOQ94ggJTqVb1FLWeG7peZvy" + ':' + "8400d21e7d31d41cce5f7397cf53a3ca").toString('base64');
         const client = create({ url: "https://ipfs.infura.io:5001",         // made a client form ipfs npm
             headers: {authorization : auth}
         });                                                             
         const response = await client.add(e.target.files[0]);
-        console.log(client);
-        console.log(client,"response",response);
+        ImgId = response.path;
+        // console.log(ImgId);
     }
-    // 33 mins
+
     return (
     <>
         <div style={{display: 'flex',justifyContent: 'flex-end',margin:"10px"}}>
@@ -52,7 +60,7 @@ const CreateNft = ({setCreatenfts}) => {
                 <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Tittle" label="Tittle" variant="outlined" size="small" margin="dense" focused/>
                 <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Description" label="Description" multiline variant="outlined" size="small" margin="dense"/>
                 <label style={{minWidth:'280px',padding:'5px'}}  for="avatar">Choose a Asset picture:</label>
-                <input style={{minWidth:'280px',padding:'10px'}} type="file" onChange={(e)=>handleImage(e)} name="File" accept="image/png, image/jpeg" />
+                <input style={{minWidth:'280px',padding:'10px'}} type="file" onClick={(e)=>handleImage(e)} onChange={(e)=>handleFormData(e)} name="File" accept="image/png, image/jpeg" />
         </div>
     </>
   )

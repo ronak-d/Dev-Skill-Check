@@ -1,11 +1,14 @@
 import { Button, TextField } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer';
+import DeployNFT from '../DeployNFT/DeployNFT';
 
 
 const CreateNft = ({setCreatenfts}) => {
 
+    // const NFTaddress = "0xe42De2478343ACbFa6f650E637Ac812cD0d37f87";
+    // const ABI = 
     var ImgId;
 
     const [formdata, setFormData] = useState({
@@ -22,7 +25,7 @@ const CreateNft = ({setCreatenfts}) => {
         // Just setting up the state
         var newobj = {...formdata};
         // condition to modify the value for image.
-        if(key == "File"){
+        if(key === "File"){
             console.log(ImgId);
             newobj[key] =(`https://ipfs.io/ipfs/${ImgId}`) ; 
         }else{
@@ -32,7 +35,6 @@ const CreateNft = ({setCreatenfts}) => {
 
     }
     console.log(formdata)
-
     async function handleImage(e){
         
         // console.log("file",e.target.files[0]);
@@ -57,10 +59,14 @@ const CreateNft = ({setCreatenfts}) => {
         </div> 
 
         <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center',flexDirection:'column',margin:"10px",padding:"10px"}}>
-                <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Tittle" label="Tittle" variant="outlined" size="small" margin="dense" focused/>
-                <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Description" label="Description" multiline variant="outlined" size="small" margin="dense"/>
-                <label style={{minWidth:'280px',padding:'5px'}}  for="avatar">Choose a Asset picture:</label>
-                <input style={{minWidth:'280px',padding:'10px'}} type="file" onClick={(e)=>handleImage(e)} onChange={(e)=>handleFormData(e)} name="File" accept="image/png, image/jpeg" />
+            <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Tittle" label="Tittle" variant="outlined" size="small" margin="dense" focused/>
+            <TextField style={{minWidth:'280px'}} onChange={(e)=>handleFormData(e)} id="outlined-basic" name="Description" label="Description" multiline variant="outlined" size="small" margin="dense"/>
+            <label style={{minWidth:'280px',padding:'5px'}}  for="avatar">Choose a Asset picture:</label>
+            <input style={{minWidth:'280px',padding:'10px'}} type="file" onClick={(e)=>handleImage(e)} onChange={(e)=>handleFormData(e)} name="File" accept="image/png, image/jpeg" />
+            <Button style={{minWidth:'280px',padding:'7px', margin:'30px 0px'}} size="small" variant="contained" onClick={()=>DeployNFT(formdata)} >Deploy Your NFT</Button>
+        </div>
+
+        <div>
         </div>
     </>
   )
